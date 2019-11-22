@@ -8,8 +8,8 @@
 module.exports = {
   title: 'Robust Framework',
   tagline: 'Framework designed for NodeJS veterans',
-  url: 'https://robust.github.io',
-  baseUrl: '/robust-website/',
+  url: 'https://robust.github.io/robust-website',
+  baseUrl: '/',
   favicon: 'img/favicon.ico',
   organizationName: 'tekuasia', // Usually your GitHub org/user name.
   projectName: 'robust-website', // Usually your repo name.
