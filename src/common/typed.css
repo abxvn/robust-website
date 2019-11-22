@@ -1,0 +1,16 @@
+.typed {
+  font-family: "Lucida Console", Monaco, monospace;
+  color: #E5E9F0;
+  display: inline-block;
+}
+
+.typed::before{
+  display: inline;
+  content: "$";
+  margin-right: 10px;
+  color: #8FBCBB;
+}
+
+.typed .highlight {
+  color: #EBCB8B;
+}

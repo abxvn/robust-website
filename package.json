@@ -1,0 +1,49 @@
+{
+  "name": "robust-doc-next-contents",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "docusaurus start",
+    "build": "docusaurus build",
+    "swizzle": "docusaurus swizzle",
+    "deploy": "docusaurus deploy",
+    "lint": "eslint **/*.js"
+  },
+  "repository": {
+    "url": "https://github.com/tekuasia/robust-website",
+    "type": "git"
+  },
+  "dependencies": {
+    "@docusaurus/core": "^2.0.0-alpha.35",
+    "@docusaurus/preset-classic": "^2.0.0-alpha.35",
+    "classnames": "^2.2.6",
+    "react": "^16.8.4",
+    "react-dom": "^16.8.4"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@welldone-software/why-did-you-render": "^3.3.9",
+    "babel-eslint": "^10.0.3",
+    "eslint": "^6.6.0",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-config-standard-react": "^9.2.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-react": "^7.16.0",
+    "eslint-plugin-standard": "^4.0.1",
+    "react-string-replace": "^0.4.4",
+    "typed.js": "^2.0.11"
+  }
+}

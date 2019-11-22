@@ -1,0 +1,31 @@
+{
+  "parser": "babel-eslint",
+  "extends": [
+    "eslint:recommended",
+    "standard",
+    "standard-react"
+  ],
+  "rules": {
+    "react/prop-types": "off",
+    "no-var": "error",
+    "consistent-return": "warn",
+    "complexity": ["warn", { "max": 15 }],
+    "padding-line-between-statements": [
+      "error",
+      { "blankLine": "always", "prev": "let", "next": "*" },
+      { "blankLine": "any", "prev": "let", "next": "let" },
+      { "blankLine": "any", "prev": "let", "next": "const" },
+      { "blankLine": "always", "prev": "const", "next": "*" },
+      { "blankLine": "any", "prev": "const", "next": "const" },
+      { "blankLine": "any", "prev": "const", "next": "let" },
+      { "blankLine": "always", "prev": "var", "next": "*" },
+      { "blankLine": "any", "prev": "var", "next": "var" },
+      { "blankLine": "always", "prev": "*", "next": "return" }
+    ]
+  },
+  "globals": {
+    // external scripts
+    "jQuery": true,
+    "Typed": true
+  }
+}

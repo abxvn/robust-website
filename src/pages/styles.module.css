@@ -1,0 +1,78 @@
+/**
+ * Copyright (c) 2017-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+/**
+ * CSS files with the .module.css suffix will be treated as CSS modules
+ * and scoped locally.
+ */
+
+.heroBanner {
+  padding: 4rem 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+
+  background: linear-gradient(#002f6c, #033b85);
+  min-height: 500px;
+  color: white;
+}
+
+@media screen and (max-width: 966px) {
+  .heroBanner {
+    padding: 2rem;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1366px) {
+  .heroBanner {
+    min-height: 300px;
+    padding: 2em 0;
+  }
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.features {
+  display: flex;
+  align-items: center;
+  padding: 5rem 0;
+  width: 100%;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1366px) {
+  .features {
+    padding: 0.5rem 0;
+  }
+}
+
+.featureImage {
+  height: 200px;
+  width: 200px;
+}
+
+.featureTitle {
+  text-align: center;
+}
+
+.heroCommands {
+  font-size: 1.3rem !important;
+  padding: 40px 0;
+}
+
+.heroTitle {
+  font-size: 2rem;
+}
+
+@media screen and (min-width: 966px) {
+  .heroTitle {
+    font-size: 3rem;
+  }
+}

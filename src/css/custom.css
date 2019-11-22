@@ -1,0 +1,111 @@
+/**
+ * Copyright (c) 2017-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/* You can override the default Infima variables here. */
+:root {
+  --ifm-navbar-link-color: #fdfdfd;
+  --ifm-navbar-link-hover-color: #dfdfdf;
+  --ifm-color-primary: #25c2a0;
+  --ifm-color-primary-dark: rgb(33, 175, 144);
+  --ifm-color-primary-darker: rgb(31, 165, 136);
+  --ifm-color-primary-darkest: rgb(26, 136, 112);
+  --ifm-color-primary-light: rgb(70, 203, 174);
+  --ifm-color-primary-lighter: rgb(102, 212, 189);
+  --ifm-color-primary-lightest: rgb(146, 224, 208);
+  --ifm-navbar-background-color: #002f6c;
+  --ifm-menu-color-active: #000;
+  --ifm-code-font-size: 100%;
+  --ifm-font-size-base: 16px;
+  --ifm-link-color: #0ea5d4;
+  --ifm-code-shell-output-top: -2.5rem;
+}
+
+.navbar-sidebar--show .menu .menu__link {
+  color: #fdfdfd;
+}
+
+.docusaurus-highlight-code-line {
+  background-color: rgb(72, 77, 91);
+  display: block;
+  margin: 0 calc(-1 * var(--ifm-pre-padding));
+  padding: 0 var(--ifm-pre-padding);
+}
+
+.hero .hero__title {
+  font-size: 2rem;
+}
+
+@media screen and (min-width: 966px) {
+  .hero .hero__title {
+    font-size: 3rem;
+  }
+}
+
+.navbar {
+  box-shadow: none;
+}
+
+.footer__logo {
+  height: 60px;
+  opacity: 0.4;
+  margin-top: 40px;
+  transition: opacity .4s ease-out;
+}
+
+.footer__logo:hover {
+  opacity: 0.8;
+}
+
+.button--action {
+  background: #3C54A2;
+  color: #E5E9F0;
+  letter-spacing: 0.04em;
+  border-radius: 1.5em;
+  box-shadow: 1px 6px 4px #00000020;
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  text-transform: uppercase;
+  font-size: 1em;
+}
+
+.button--action:hover {
+  background: #4862b7;
+  color: white;
+}
+
+.navbar__toggle {
+  position: absolute;
+  right: 10px;
+  color: white;
+}
+
+.language-shell__output {
+  margin-top: var(--ifm-code-shell-output-top);
+  position: relative;
+  border-radius: 0 0 var( --ifm-global-radius) var(--ifm-global-radius);
+  padding: 5px var( --ifm-pre-padding) var(--ifm-pre-padding) var(--ifm-pre-padding);
+  background-color: rgb(41, 45, 62);
+  color: rgb(191, 199, 213);
+}
+
+.language-undefined::before, .language-shell::before, .language-bash::before {
+  content: '$';
+  margin-right: 10px;
+  display: inline-block;
+}
+
+.language-undefined div, .language-shell div, .language-bash div {
+  display: inline-block;
+}
