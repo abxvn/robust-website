@@ -100,6 +100,13 @@
   color: rgb(191, 199, 213);
 }
 
+.language-shell__output--standalone {
+  margin-top: 0;
+  border-radius: var( --ifm-global-radius);
+  padding: var( --ifm-pre-padding);
+  background: rgb(66, 70, 86);
+}
+
 .language-undefined::before, .language-shell::before, .language-bash::before {
   content: '$';
   margin-right: 10px;
