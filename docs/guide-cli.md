@@ -16,13 +16,14 @@ robust --help
 <ShellOutput lines={`
 Usage: robust <command>
 Commands:
-  robust new <template> <name>  Scaffold new robust application
-  robust serve                  Start application
-  robust add <name>             Create local module
-  robust add:controller <name>  ᴇ Add new controller
+  {link.#21-robust-new robust new <template> <name>}  Scaffold new robust application
+  {link.#22-robust-serve robust serve}                  Start application
+  {link.#23-robust-add robust add <name>}             Create local module
+  {link.#24-robust-remove robust remove <name>}          Safely remove local module
+  {link.#31-robust-addcontroller robust add:controller <name>}  ᴇ Add new controller
 Options:
-  -h, --help     Show help                        [boolean]
-  -v, --version  Show version number              [boolean]
+  -h, --help     Show help                               [boolean]
+  -v, --version  Show version number                     [boolean]
 `} />
 
 Command list can be different when Robust CLI extensions found. For more information, please head down to [Extend CLI commands](#4-extend-cli-commands).
@@ -123,6 +124,28 @@ You can also select other modules' template like `api`, `console`, `mvc (coming 
 ```
 robust add api-module --as api
 ```
+
+### 2.4. `robust remove`
+
+For safely removing a local module, there is a `robust remove` command to help
+
+```
+robust remove module-01
+```
+<ShellOutput lines={`
+success Module module-01 removed
+`} />
+
+To remove entire module contents, please add `--destroy` flag, or simple `-d` after the command:
+
+```
+robust remove module-01 -d
+```
+<ShellOutput lines={`
+warn Entire module module-01 directory will be deleted
+success Module module-01 removed
+`} />
+
 
 ## 3. Other CLI commands
 

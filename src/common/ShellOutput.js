@@ -15,6 +15,7 @@ export const ACTION_TOKEN = /^(\s+)((added|inject): .+)/
 export const ROBUST_TOKEN = /^(\s*)robust (\w+(?::\w+)*) ((<\w+> )+)?/
 export const TOKEN_REGEX = /{([^}]+)}/gi
 export const TOKEN_PART_REGEX = /([^ ]+) (.+)/
+export const LINK_REGEX = /link\.([^ ]+)/
 export const applyColor = str => {
   const filters = {
     info: 'deepskyblue',
@@ -30,12 +31,9 @@ export const applyColor = str => {
   const levelInjectedStr = str.replace(LOG_LEVEL_TOKEN, (_, level) => `{${level} ${level}} `)
   const debugInjectedStr = levelInjectedStr.replace(DEBUG_TOKEN, (token) => `{${filters.debug} ${token}} `)
   const actionInjectedStr = debugInjectedStr.replace(ACTION_TOKEN, (_, indents, line, action) => `${indents}{${action} ${line}}`)
-  const nameInjectedStr = actionInjectedStr.replace(NAME_TOKEN, (_, prefix, name, after) => {
-    return `${prefix} {name ${name}}${after}`
-  })
-  const robustInjectedStr = nameInjectedStr.replace(ROBUST_TOKEN, (_, indents, action, params) => `${indents}{light robust ${action} ${params || ''}}`)
+  const nameInjectedStr = actionInjectedStr.replace(NAME_TOKEN, (_, prefix, name, after) => `${prefix} {name ${name}}${after}`)
 
-  return stringReplace(robustInjectedStr, TOKEN_REGEX, (token) => {
+  return stringReplace(nameInjectedStr, TOKEN_REGEX, (token) => {
     const matches = TOKEN_PART_REGEX.exec(token)
 
     if (!matches) {
@@ -43,9 +41,17 @@ export const applyColor = str => {
     }
 
     const [, filterName, text] = matches
-    const color = filters[filterName] ? filters[filterName] : filterName
+    const linkContents = filterName.match(LINK_REGEX)
 
-    return <span key={text} style={{ color }}>{text}</span>
+    if (linkContents) {
+      const [, url] = linkContents
+
+      return <a href={url}>{text}</a>
+    } else {
+      const color = filters[filterName] ? filters[filterName] : filterName
+
+      return <span key={text} style={{ color }}>{text}</span>
+    }
   })
 }
 
