@@ -107,12 +107,8 @@
   background: rgb(66, 70, 86);
 }
 
-.language-undefined::before, .language-shell::before, .language-bash::before {
+.language-undefined .token-line::before, .language-shell .token-line::before, .language-bash .token-line::before {
   content: '$';
   margin-right: 10px;
-  display: inline-block;
-}
-
-.language-undefined div, .language-shell div, .language-bash div {
   display: inline-block;
 }

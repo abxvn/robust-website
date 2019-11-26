@@ -20,7 +20,11 @@ Commands:
   {link.#22-robust-serve robust serve}                  Start application
   {link.#23-robust-add robust add <name>}             Create local module
   {link.#24-robust-remove robust remove <name>}          Safely remove local module
-  {link.#31-robust-addcontroller robust add:controller <name>}  ᴇ Add new controller
+  {link.#31-robust-routelist robust route:list}             ᴇ List all routes added by controllers
+  {link.#32-robust-controllerlist robust controller:list}        ᴇ List all controllers
+  {link.#33-robust-controlleradd robust controller:add <name>}  ᴇ Add new controller
+  {link.#34-robust-mongodbadd robust mongo:db:add <uri>}     ᴇ Add a database connection}
+  {link.#35-robust-mongodbtest robust mongo:db:test <uri>}    ᴇ Test mongo database connection}
 Options:
   -h, --help     Show help                               [boolean]
   -v, --version  Show version number                     [boolean]
@@ -28,7 +32,7 @@ Options:
 
 Command list can be different when Robust CLI extensions found. For more information, please head down to [Extend CLI commands](#4-extend-cli-commands).
 
-## 2. Official commands
+## 2. Base official commands
 
 ### 2.1. `robust new`
 
@@ -147,14 +151,42 @@ success Module module-01 removed
 `} />
 
 
-## 3. Other CLI commands
+## 3. Other official commands
 
-> Side-note: These commands are added as extensions from many other Robust modules
+> Side-note: These `E` marked commands are added as extensions from many other Robust modules
 > For more information on making CLI extensions, please see [Extend CLI commands](#4-extend-cli-commands)
 
-### 3.1. `robust add:controller`
+### 3.1 `robust route:list`
+( Added by `@robust/controller-parser` )
 
-( Added by `@robust/parse-controllers` )
+This command will list all current routes
+
+```
+robust route:list
+```
+<ShellOutput lines={`
+    GET /module-01/
+    GET /
+    GET /test/
+`} />
+
+### 3.2 `robust controller:list`
+( Added by `@robust/controller-parser` )
+
+This command will list all app controller
+
+```
+robust controller:list
+```
+<ShellOutput lines={`
+    modules/module-01/controllers/IndexController.js
+    controllers/IndexController.js
+    controllers/TestController.js
+`} />
+
+### 3.3. `robust controller:add`
+
+( Added by `@robust/express` )
 
 This command will create new controller for your application, for example adding `TestController`:
 
@@ -166,6 +198,33 @@ robust add:controller test
 `} />
 
 Then, after `robust serve` your application, you can access [localhost:3000/test](//localhost:3000/test)
+
+### 3.4 `robust mongo:db:add`
+( Added by `@robust/mongo` )
+
+```
+robust mongo:db:add mongodb://$DB_HOST:$DB_PORT/test
+```
+<ShellOutput lines={`
+info Adding connection default config with driver mongoose
+   inject: index.js
+   inject: package.json
+   inject: .env
+   inject: config/mongoose.config.js
+`} />
+
+### 3.5 `robust mongo:db:test`
+( Added by `@robust/mongo` )
+
+This command will test connection to a MongoDB database
+
+```
+robust mongo db:test mongodb://localhost:27017/test -u $DB_USER -p $DB_PASSWORD
+```
+<ShellOutput lines={`
+info Connecting to database at mongodb://localhost:27017/test
+success Connected
+`} />
 
 ## 4. Extend CLI commands
 
